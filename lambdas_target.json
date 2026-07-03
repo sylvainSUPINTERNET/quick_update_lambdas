@@ -1,0 +1,53 @@
+{
+    "arn:aws:states:eu-west-3:376411704273:stateMachine:poc-gcm-ccheck-technical-physical-quantity": {
+        "lambdas": [
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt1-1:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt1-2:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt1-3:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt3-1:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt3-2:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt3-3:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt4-1:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt7-1:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt7-2:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt8-3:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt8-3-pseudo:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt8-4:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt8-4-dico:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt8-4-pseudo:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgt8-4-dico-pseudo:$LATEST"
+        ],
+        "ecr_image": "376411704273.dkr.ecr.eu-west-3.amazonaws.com/gcs00/gcs-lambda-consistency-check-control@sha256:3bd48db7c9ddc4ee8e80d56e80bb7a80631c3ca9e576169ed15a22063edb1576"
+    },
+    "arn:aws:states:eu-west-3:376411704273:stateMachine:poc-gcm-ccheck-homologation-physical-quantity": {
+        "lambdas": [
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh1-1:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh1-2:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh1-3:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh3-1:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh3-2:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh3-3:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh4-1:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh7-1:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh7-2:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh8-3:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh8-3-pseudo:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh8-4:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh8-4-dico:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh8-4-pseudo:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rgh8-4-dico-pseudo:$LATEST"
+        ],
+        "ecr_image": "376411704273.dkr.ecr.eu-west-3.amazonaws.com/gcs00/gcs-lambda-consistency-check-control@sha256:3bd48db7c9ddc4ee8e80d56e80bb7a80631c3ca9e576169ed15a22063edb1576"
+    },
+    "arn:aws:states:eu-west-3:376411704273:stateMachine:test-gcm-ccheck-loaders": {
+        "lambdas": [
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-pld-loader:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-local-rules-loader:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-local-fvcrow-loader:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-local-fvcmatrix-loader:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-external-rules-loader:$LATEST",
+            "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-referential-loader:$LATEST"
+        ],
+        "ecr_image": "376411704273.dkr.ecr.eu-west-3.amazonaws.com/gcs00/gcs-lambda-consistency-check-loader@sha256:06285ba58bfd07dd78461e0081e581420e66ba2852f71d6ee22925990659254f"
+    }
+}

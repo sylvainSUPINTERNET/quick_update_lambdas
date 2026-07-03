@@ -1,0 +1,20 @@
+{
+  "name": "deploy_lambda_with_tokens",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-lambda": "^3.1079.0",
+    "@aws-sdk/client-sfn": "^3.1079.0",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0"
+  }
+}
