@@ -42,3 +42,23 @@ bun build update_lambdas.ts --compile --outfile update_lambdas.exe
 .\update_lambdas.exe
 
 ````
+
+```` bash 
+
+# create lambdas_specific.json like :
+
+# {
+#     "lambdas": [
+#         "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rc4-mod-1",
+#         "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rc4-mod-2",
+#         "arn:aws:lambda:eu-west-3:376411704273:function:test-gcm-cc-rc4-mod-3"
+
+#     ],
+#     "ecr_image": "376411704273.dkr.ecr.eu-west-3.amazonaws.com/gcs00/gcs-lambda-consistency-check-control@sha256:300322b6b42394bbb1e780264e6c530429944b4cac6834a5eeaa6686c83213d9"
+# }
+
+bun build update_specific_lambdas.ts --compile --outfile update_specific_lambdas.exe
+
+.\update_specific_lambdas.exe
+
+````
