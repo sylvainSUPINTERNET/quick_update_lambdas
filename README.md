@@ -62,3 +62,23 @@ bun build update_specific_lambdas.ts --compile --outfile update_specific_lambdas
 .\update_specific_lambdas.exe
 
 ````
+# Téléchargement des logs JSON S3
+
+Construire l'exécutable :
+
+```powershell
+npm run build:s3-downloader
+```
+
+Télécharger tous les fichiers JSON d'un préfixe S3 :
+
+```powershell
+.\s3_log_downloader.exe "/mod2/d9bd43ca-e943-4832-8421-c63ffdfb9f0c/"
+```
+
+Les fichiers sont placés par défaut dans `s3_logs/<dernier-segment>/`. Un autre dossier
+peut être fourni en second argument. Le script utilise les identifiants AWS du
+`.env` placé à côté de l'exécutable ou la chaîne d'identification AWS standard.
+
+Le bucket par défaut est `test-gcm-lambdas-profiler`. Il peut être remplacé avec
+`S3_BUCKET`.

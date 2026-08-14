@@ -7,10 +7,12 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "build:s3-downloader": "bun build ./s3_log_downloader.ts --compile --outfile s3_log_downloader.exe",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@aws-sdk/client-lambda": "^3.1079.0",
+    "@aws-sdk/client-s3": "^3.1110.0",
     "@aws-sdk/client-sfn": "^3.1079.0",
     "dotenv": "^17.4.2"
   },
