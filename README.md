@@ -82,3 +82,77 @@ peut être fourni en second argument. Le script utilise les identifiants AWS du
 
 Le bucket par défaut est `test-gcm-lambdas-profiler`. Il peut être remplacé avec
 `S3_BUCKET`.
+
+# Création des Lambdas Consistency Check
+
+Le script lit les CSV qui servent de source au module Terraform
+`aws-gcm-consitancy-checks`. Il crée uniquement les Lambdas listées dans ces
+CSV, et clone une Lambda existante de chaque type
+(`control`, `rx12`, `loader`, `vloop`) et réutilise automatiquement son image ECR,
+son rôle IAM, sa configuration VPC, sa mémoire, son timeout et ses variables
+d'environnement. Il remplace ensuite le handler et les champs CSV propres à la
+nouvelle Lambda, puis la crée directement avec le SDK AWS. Terraform n'est pas
+utilisé.
+
+Les Lambdas fixes `exception-unlocker`, `end-notification`, `clear-cache` et
+`hide-report` ne sont pas touchées : elles sont déjà définies séparément dans
+Terraform.
+
+```powershell
+npx tsx .\generate_consistency_check_lambdas.ts test --apply `
+	--template-control test-gcm-cc-lp1-1 `
+	--template-rx12 test-gcm-cc-rm12-1-1 `
+	--template-loader test-gcm-cc-context-loader `
+	--template-vloop test-gcm-cc-vloop-loader
+```
+
+Les arguments `--template-*` peuvent être des noms ou des ARN de Lambdas déjà
+existantes dans le même compte/région. Ils sont importants : ils servent de
+modèles pour reproduire exactement la configuration réellement déployée.
+
+Pour créer uniquement les Lambdas `control`, ajoute `--only control`. Le script
+ne lira alors que `gcm_cc_control_list.csv` et ne demandera que le modèle control :
+
+```powershell
+npx tsx .\generate_consistency_check_lambdas.ts test --only control --apply `
+	--template-control test-gcm-cc-lp1-1
+```
+
+Pour créer uniquement `CONTEXT_LOADER` avec un nom personnalisé :
+
+```powershell
+npx tsx .\generate_consistency_check_lambdas.ts dev --only loader `
+	--csv-id CONTEXT_LOADER `
+	--function-name dev-gcm-consistencychecks-loader-context-form `
+	--apply `
+	--template-loader dev-gcm-cc-context-loader
+```
+
+Sans `--apply`, le script fait seulement un dry-run et ne crée rien. Le résultat
+est écrit dans `consistency_check_lambdas_test.json` et contient les ARN créés.
+Les clés d'environnement sensibles sont masquées dans le JSON par défaut. Pour
+un usage local contrôlé :
+
+```powershell
+npx tsx .\generate_consistency_check_lambdas.ts test --include-sensitive
+```
+
+Options disponibles : `--csv-dir <path>` et `--output <path>`.
+
+Version compilée :
+
+```powershell
+npm run build:consistency-check
+.\generate_consistency_check_lambdas.exe test
+```
+
+
+```` powershell 
+
+npx tsx .\generate_consistency_check_lambdas.ts <test|stg|prd|dev...> --apply --template-control test-gcm-cc-lp1-1 --template-rx12 test-gcm-cc-rm12-1-1 --template-loader test-gcm-cc-context-loader --template-vloop test-gcm-cc-vloop-loader
+
+# npx tsx .\generate_consistency_check_lambdas.ts test --only control --apply --template-control test-gcm-cc-lp1-1
+
+npx tsx .\generate_consistency_check_lambdas.ts test --only loader --apply --template-loader test-gcm-cc-context-loader
+
+````

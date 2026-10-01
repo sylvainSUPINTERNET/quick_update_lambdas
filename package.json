@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "build:s3-downloader": "bun build ./s3_log_downloader.ts --compile --outfile s3_log_downloader.exe",
+    "build:consistency-check": "bun build ./generate_consistency_check_lambdas.ts --compile --outfile generate_consistency_check_lambdas.exe",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
